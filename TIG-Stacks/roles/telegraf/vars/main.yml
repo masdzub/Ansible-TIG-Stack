@@ -1,0 +1,9 @@
+---
+mikrotik_agent: mikrotik.ip-dynamic.com
+community_snmp: mikrotik
+auth_snmp: 2019Wisuda!
+priv_snmp: Wisuda!2019
+influxdb_host: http://localhost:8086 
+influxdb_username: "telegraf"
+influxdb_password: "2019Wisuda!#influxdb"
+influxdb_database: "mikrotik.grafana"

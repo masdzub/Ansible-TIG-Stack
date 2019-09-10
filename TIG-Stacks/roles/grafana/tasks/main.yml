@@ -1,0 +1,8 @@
+- name: setup repository
+  import_tasks: repo.yml
+
+- name: install font requirements
+  import_tasks: font.yml
+
+- name: deploy grafana
+  import_tasks: grafana.yml

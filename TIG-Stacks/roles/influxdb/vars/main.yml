@@ -1,0 +1,5 @@
+---
+influxdb_host: 127.0.0.1 
+influxdb_username: "telegraf"
+influxdb_password: "2019Wisuda!#influxdb"
+influxdb_database: "mikrotik.grafana"

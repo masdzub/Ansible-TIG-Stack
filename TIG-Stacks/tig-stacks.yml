@@ -1,0 +1,8 @@
+---
+- name: deploy TIG stacks
+  hosts: all
+  roles: 
+    - { role: misc, tags: misc }
+    - { role: telegraf, tags: telegraf }
+    - { role: influxdb, tags: influxdb }
+    - { role: grafana, tags: grafana }

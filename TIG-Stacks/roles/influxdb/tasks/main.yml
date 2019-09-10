@@ -1,0 +1,26 @@
+---
+- name: install InfluxDB
+  yum:
+    name: influxdb
+  when: ansible_facts['os_family'] == 'RedHat'
+
+- name: install InfluxDB
+  apt:
+    name: influxdb
+  when: ansible_facts['os_family'] == 'Debian'
+
+- service:
+    name: influxd
+    state: restarted
+    enabled: yes
+
+- name: install influxdb python package
+  pip:
+    name: influxdb
+
+- name: create database and credential
+  influxdb_database:
+    hostname: "{{influxdb_host}}"
+    username: "{{influxdb_username}}"
+    password: "{{influxdb_password}}"
+    database_name: "{{influxdb_database}}"

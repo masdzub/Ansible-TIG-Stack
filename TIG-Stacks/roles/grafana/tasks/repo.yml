@@ -1,0 +1,15 @@
+---
+- name: add grafana repo
+  yum_repository:
+    name: grafana
+    description: For Grafana installation
+    baseurl: https://packages.grafana.com/oss/rpm
+    enabled: yes
+    gpgkey: https://packages.grafana.com/gpg.key
+    gpgcheck: yes
+  when: ansible_facts['os_family'] == "RedHat"
+
+- apt_repository:
+    repo: deb https://packages.grafana.com/oss/deb stable main
+    state: present
+  when: ansible_facts['os_family'] == "Debian"

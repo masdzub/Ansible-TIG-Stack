@@ -1,0 +1,12 @@
+---
+- name: Create influxdb datasource
+  grafana_datasource:
+    name: "influxdb_ds"
+    grafana_url: "{{ grafana_url }}"
+    grafana_user: "{{ grafana_user }}"
+    grafana_password: "{{ grafana_password }}"
+    org_id: "1"
+    ds_type: "influxdb"
+    url: "{{ influxdb_url }}"
+    database: "{{ influxdb_database }}"
+    time_interval: ">10s"

@@ -1,0 +1,9 @@
+---
+- name: install base packages
+  import_tasks: base-packages.yml
+
+- name: setup base configs
+  import_tasks: base-configs.yml
+
+- name: setup repository
+  import_tasks: repo.yml

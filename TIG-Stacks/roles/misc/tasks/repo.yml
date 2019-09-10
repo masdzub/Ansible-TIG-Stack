@@ -1,0 +1,20 @@
+---
+- name: add InfuxData Repo
+  yum_repository:
+    name: influxdb.repo
+    description: For Telegraf and InfluxDB installation
+    baseurl: https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://repos.influxdata.com/influxdb.key
+  when: ansible_facts['os_family'] == 'RedHat'
+
+- name: add apt key InfluxData Repo
+  apt_key:
+    url: https://repos.influxdata.com/influxdb.key 
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: add InfluxData Repo
+  apt_repository:
+    repo: deb https://repos.influxdata.com/ubuntu xenial stable
+  when: ansible_facts['os_family'] == 'Debian'

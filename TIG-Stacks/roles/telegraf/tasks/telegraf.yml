@@ -1,0 +1,22 @@
+---
+- name: deploy Telegraf
+  yum:
+    name: telegraf
+    state: latest
+  notify:
+    - enabled telegraf service
+  when: ansible_facts['os_family'] == 'RedHat'
+
+- name: deploy Telegraf
+  apt:
+    name: telegraf
+    state: latest
+  notify:
+    - enabled telegraf service
+  when: ansible_facts['os_family'] == 'Debian'
+
+- template:
+    src: telegraf.conf.j2
+    dest: /etc/telegraf/telegraf.conf
+  notify:
+    - restart telegraf service

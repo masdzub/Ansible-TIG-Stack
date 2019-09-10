@@ -1,0 +1,6 @@
+---
+- name: enabled influxdb service
+  systemd:
+    name: influxdb
+    state: restarted
+    enabled: yes
